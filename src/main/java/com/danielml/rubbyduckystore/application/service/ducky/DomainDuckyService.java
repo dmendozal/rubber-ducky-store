@@ -2,8 +2,12 @@ package com.danielml.rubbyduckystore.application.service.ducky;
 
 import com.danielml.rubbyduckystore.domain.models.Ducky;
 import com.danielml.rubbyduckystore.domain.ports.IDuckyRepository;
+import com.danielml.rubbyduckystore.infrastructure.exceptions.ResourceNotFoundException;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class DomainDuckyService implements IDuckyService {
@@ -15,7 +19,13 @@ public class DomainDuckyService implements IDuckyService {
 
     @Override
     public Iterable<Ducky> getDuckies() {
-        ArrayList<Ducky> duckies = (ArrayList<Ducky>) this.duckyRepository.getDuckies();
+        List<Ducky> duckies = (List<Ducky>) this.duckyRepository.getDuckies();
+        Collections.sort(duckies, new Comparator<Ducky>() {
+            @Override
+            public int compare(Ducky o1, Ducky o2) {
+                return Integer.compare(o2.getQuantity(), o1.getQuantity());
+            }
+        });
 
         return duckies.stream().filter(ducky -> !ducky.isDeleted()).collect(Collectors.toList());
     }

@@ -23,7 +23,7 @@ public class DuckyRepository implements IDuckyRepository {
     }
 
     @Override
-    public Ducky getDuckyById(int id) {
+    public Ducky getDuckyById(int id) throws ResourceNotFoundException {
         DuckyEntity duckyEntity = this.duckyCrudRepository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("El recurso solicitado no fue encontrado.")
         );
