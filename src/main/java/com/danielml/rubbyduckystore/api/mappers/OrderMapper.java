@@ -44,7 +44,7 @@ public class OrderMapper {
         return new CreateOrderResult(order.getPackagingType(),
                 order.getProtectionType(),
                 order.isHasMoistureAbsorbingBalls(),
-                order.getTotal(),
+                String.format("%s USD", order.getTotal()),
                 order.getDetails());
     }
 }

@@ -26,9 +26,6 @@ public class DuckyEntity {
     private int quantity;
     private boolean isDeleted;
 
-    @OneToOne(mappedBy = "ducky")
-    private OrderEntity order;
-
     public DuckyEntity(int id, Color color, Size size, double price, int quantity, boolean isDeleted) {
         this.id = id;
         this.color = color;

@@ -15,11 +15,8 @@ public class DomainOrderService implements IOrderService {
     }
 
     @Override
-    public Order createOrder(Order order) throws Exception {
+    public Order createOrder(Order order) {
         Ducky ducky = this.duckyRepository.getDuckyById(order.getDuckyId());
-
-        if (ducky == null)
-            throw new Exception("El patito seleccionado no se pudo encontrar");
 
         order.setDucky(ducky);
         order.applyPackaging();

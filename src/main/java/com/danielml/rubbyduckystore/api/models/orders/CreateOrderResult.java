@@ -9,7 +9,7 @@ public record CreateOrderResult(
         PackagingType packagingType,
         ProtectionType protectionType,
         boolean hasMoistureAbsorbingBalls,
-        double totalCost,
+        String totalCost,
         List<String> details
 ) {
 }
