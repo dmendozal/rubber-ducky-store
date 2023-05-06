@@ -16,34 +16,19 @@ public class Ducky {
     public Ducky(){
 
     }
-    private Ducky(int id,
-                  Color color,
-                  Size size,
-                  double price,
-                  int quantity) {
-        this.id = id;
-        this.color = color;
-        this.size = size;
-        this.price = price;
-        this.quantity = quantity;
-        this.isDeleted = false;
-    }
 
-    public Ducky(int id, Color color, Size size, double price, int quantity, boolean isDeleted) {
+    public Ducky(int id,
+                 Color color,
+                 Size size,
+                 double price,
+                 int quantity,
+                 boolean isDeleted) {
         this.id = id;
         this.color = color;
         this.size = size;
         this.price = price;
         this.quantity = quantity;
         this.isDeleted = isDeleted;
-    }
-
-    public static Ducky create(int id,
-                               Color color,
-                               Size size,
-                               double price,
-                               int quantity) {
-        return new Ducky(id, color, size, price, quantity);
     }
 
     public void addNewDucky(int quantity) {

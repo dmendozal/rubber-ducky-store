@@ -14,6 +14,7 @@ public class DuckyMapper {
 
     public static Ducky toDucky(CreateDuckyRequest duckyRequest) {
         Ducky ducky = new Ducky();
+        ducky.setId(0);
         ducky.setColor(duckyRequest.color());
         ducky.setSize(duckyRequest.size());
         ducky.setPrice(duckyRequest.price());
